@@ -1,0 +1,5 @@
+import { PublicHeader,Footer } from '@/components/brand';
+import { CompetencyCard,SourceEmpty } from '@/components/catalog';
+import { publicData } from '@/lib/data';
+export const dynamic='force-dynamic';
+export default async function TracksPage(){const {matrix}=await publicData();return <><PublicHeader active="tracks"/><main id="main" className="page-content"><div className="page-banner"><h1>Профессиональные треки</h1></div><div className="page-intro"><h2>У каждого роста<br/>своё направление.</h2><p className="muted">Выберите основной профессиональный трек и при необходимости один дополнительный. На Middle это направление развития, на Senior — часть профессионального профиля.</p></div>{!matrix?<SourceEmpty/>:matrix.data.tracks.map(t=><section key={t.id} style={{marginTop:40}}><span className="badge">{t.management?'Управление командой':'Профессиональное направление'}</span><h2 style={{fontSize:32,marginTop:18}}>{t.name}</h2>{t.competencies.map(c=><CompetencyCard key={c.id} c={c} area={t.name}/>)}</section>)}</main><Footer/></>}

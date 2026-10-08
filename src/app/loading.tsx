@@ -1,0 +1,1 @@
+export default function Loading(){return <main id="main" aria-busy="true" aria-label="Загрузка"><div className="skeleton"/><div className="skeleton"/><p style={{padding:20}}>Загружаем страницу…</p></main>}

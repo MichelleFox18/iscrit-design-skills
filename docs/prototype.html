@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Матрица развития — направления интерфейса</title>
+<style>
+:root{--bg:#f5f4f9;--surface:#fff;--text:#232334;--muted:#555569;--accent:#5936ad;--soft:#efebf8;--border:#d9d8e2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,sans-serif}button,select{font:inherit}button{cursor:pointer}a{color:var(--accent)}:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.container{max-width:1200px;margin:auto;padding:32px 24px}header{display:flex;justify-content:space-between;gap:24px;align-items:center}h1{font-size:clamp(28px,4vw,44px);line-height:1.2;letter-spacing:-.025em}h2{font-size:26px;line-height:1.3}h3{margin-top:0;font-size:18px}p{max-width:76ch}.muted{color:var(--muted)}.tag{display:inline-block;border:1px solid var(--border);padding:6px 12px;border-radius:40px;font-size:14px}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}.choice{text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;color:var(--text);min-height:172px}.choice[aria-pressed=true]{border:2px solid var(--accent);padding:23px;background:var(--soft)}.choice strong{display:block;font-size:21px;margin-bottom:8px}.choice span{display:block}.swatches{display:flex;gap:6px;margin-top:14px}.swatches i{width:24px;height:12px;border-radius:4px}.notice{padding:18px 22px;background:var(--soft);border-radius:12px}.screen{margin:36px 0;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden}.screen-head{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;gap:16px;justify-content:space-between;align-items:center}.screen-head strong{font-size:20px}.layout{display:grid;grid-template-columns:205px 1fr}.sidebar{padding:24px 18px;border-right:1px solid var(--border)}.sidebar ul{padding:0;list-style:none;margin:0}.sidebar li{padding:10px 12px;margin:4px 0}.sidebar .selected{background:var(--soft);color:var(--accent);border-radius:8px;font-weight:650}.content{padding:28px}.row{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.area-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{padding:20px;border:1px solid var(--border);border-radius:12px;margin-bottom:20px}.callout{background:var(--soft);border-color:transparent}.area{font-size:14px}.value{display:block;font-size:24px;font-weight:650;margin-top:8px}.placeholder{padding:20px;border:1px dashed var(--border);border-radius:10px;color:var(--muted);margin:12px 0}.field{display:block;font-weight:600;margin-bottom:8px}select{max-width:100%;width:100%;padding:12px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;min-height:44px}.steps{padding-left:22px}.steps li{margin:8px 0}.annotation{font-size:14px;color:var(--muted);margin-top:16px}.pill{display:inline-block;border-radius:6px;background:var(--soft);color:var(--accent);padding:5px 10px;font-size:14px}.comparison{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.caption{font-size:14px;color:var(--muted);margin-top:-20px}footer{border-top:1px solid var(--border);padding-top:20px;margin-top:40px}.action{font-weight:650;color:var(--accent)}.mapping{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}.mapping a{padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-decoration:none}
+@media(max-width:900px){.area-grid,.comparison{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:160px 1fr}.content{padding:20px}.choices{gap:10px}.choice{padding:16px}.choice[aria-pressed=true]{padding:15px}}
+@media(max-width:650px){.container{padding:20px 16px}header{display:block}.choices,.row,.area-grid,.comparison{grid-template-columns:1fr}.layout{display:block}.sidebar{border-right:0;border-bottom:1px solid var(--border);padding:12px}.sidebar ul{display:flex;overflow-x:auto}.sidebar li{white-space:nowrap}.screen-head{align-items:flex-start;flex-direction:column}.content{padding:16px}.choice{min-height:0}}
+</style>
+</head>
+<body>
+<main class="container">
+<header><strong>Матрица / развитие</strong><span class="tag">Направления и схемы экранов</span></header>
+<h1>Развитие с понятным следующим шагом</h1>
+<p class="muted">Три варианта для внутренней платформы дизайн-команды. Выберите направление, чтобы посмотреть его цвета на схемах ниже.</p>
+<div class="choices" aria-label="Визуальное направление">
+<button class="choice" data-theme="studio" aria-pressed="true"><strong>01 · Студия</strong><span>Светлая, спокойная, с фиолетовым акцентом. Обзор и карточки целей.</span><span class="swatches" aria-hidden="true"><i style="background:#5936ad"></i><i style="background:#232334"></i><i style="background:#efebf8"></i></span></button>
+<button class="choice" data-theme="notebook" aria-pressed="false"><strong>02 · Рабочая тетрадь</strong><span>Тёплая, с зелёным акцентом. Последовательные шаги и формы.</span><span class="swatches" aria-hidden="true"><i style="background:#236045"></i><i style="background:#292e28"></i><i style="background:#eaf1e8"></i></span></button>
+<button class="choice" data-theme="navigator" aria-pressed="false"><strong>03 · Навигатор</strong><span>Компактная, с синим акцентом. Сравнение и закреплённые критерии.</span><span class="swatches" aria-hidden="true"><i style="background:#2456a5"></i><i style="background:#202b3c"></i><i style="background:#eaf0fb"></i></span></button>
+</div>
+<p id="theme-status" role="status">Выбрано для просмотра: Студия. Выбор здесь меняет только схему; направление проекта согласуется в чате.</p>
+<div class="notice">Это предварительные схемы, а не работающая платформа. Названия компетенций и описания уровней появятся после импорта исходной таблицы. Числовые результаты сотрудников здесь не показаны.</div>
+<h2>Карта интерфейса</h2>
+<p><strong>Публично:</strong> о платформе → матрица → карточка компетенции → треки → внешние материалы.</p>
+<p><strong>После входа:</strong> мой обзор → оценка → развитие → история → материалы. Руководителю доступна команда; администратору — управление.</p>
+<nav class="mapping" aria-label="Схемы экранов"><a href="#dashboard">Личный кабинет</a><a href="#assessment">Карточка оценки</a><a href="#development">План развития</a></nav>
+<section id="dashboard" class="screen" aria-labelledby="dashboard-title">
+<div class="screen-head"><strong id="dashboard-title">Личный кабинет</strong><span class="pill">Главное действие — на первом экране</span></div>
+<div class="layout"><aside class="sidebar" aria-label="Схема навигации"><ul><li class="selected">Мой обзор</li><li>Оценка</li><li>Развитие</li><li>История</li><li>Материалы</li></ul></aside>
+<div class="content"><h2>Мой обзор</h2><p class="muted">Имя · должность · направление · выбранный трек</p>
+<div class="card callout"><h3>Следующий шаг</h3><p>Здесь появится действие для текущего этапа: начать самооценку, продолжить заполнение или подготовиться к review.</p><span class="action">Переход в активную карточку →</span></div>
+<div class="row"><div class="card"><h3>Текущий цикл</h3><p>Период · статус · дата review</p><span class="muted">Заполненность: после создания карточки</span></div><div class="card"><h3>Ориентир для калибровки</h3><span class="value">Нет оценки</span><p class="muted">Предварительный результат до review; после него — только согласованные ответы.</p></div></div>
+<h3>Результаты по областям</h3><div class="area-grid"><div class="card area">Дизайн и решение задач<span class="value">—</span></div><div class="card area">Коммуникация и совместная работа<span class="value">—</span></div><div class="card area">Самоорганизация и ведение работы<span class="value">—</span></div><div class="card area">Ответственность и влияние<span class="value">—</span></div></div>
+<div class="row"><div class="card"><h3>Ближайшие цели</h3><p class="muted">До двух согласованных целей: одна из общей матрицы и одна из трека.</p></div><div class="card"><h3>Материалы для развития</h3><p class="muted">Связанные материалы появятся после выбора целей.</p></div></div>
+</div></div></section>
+<p class="caption">Профиль → ближайшее действие → заполненность и результат → области → цели и материалы.</p>
+<section id="assessment" class="screen" aria-labelledby="assessment-title"><div class="screen-head"><strong id="assessment-title">Карточка оценки</strong><span class="pill">Три независимых ответа</span></div><div class="content">
+<p class="muted">Текущий цикл / область / компетенция</p><h2>Название компетенции из таблицы</h2><div class="placeholder">Точное пояснение и критерии уровней из XLSX. Текста источника пока нет.</div>
+<div class="comparison"><div class="card"><h3>Самооценка</h3><label class="field" for="sample-rating">Выберите ответ</label><select id="sample-rating"><option value="">Не выбран</option value="source" disabled>1–4 — описания ожидают импорта</option><option value="na">Н/П — не применимо</option></select><p id="sample-description" role="status">После выбора здесь останется полное описание уровня.</p><div class="placeholder">Комментарий и ссылки на работы</div></div>
+<div class="card"><h3>Руководитель</h3><p>Ответ доступен после публикации.</p><div class="placeholder">Оценка, описание уровня и комментарий</div></div>
+<div class="card"><h3>Согласованный итог</h3><p>Фиксируется по результатам review.</p><div class="placeholder">Итоговый уровень и подтверждение двух сторон</div></div></div>
+<p class="annotation">Расхождение рассчитывается только для двух числовых ответов. Черновик руководителя закрыт; исходная самооценка не перезаписывается.</p>
+</div></section>
+<p class="caption">На мобильном три колонки становятся последовательными секциями с подписями авторов.</p>
+<section id="development" class="screen" aria-labelledby="development-title"><div class="screen-head"><strong id="development-title">План развития</strong><span class="pill">Выбор сотрудника и руководителя</span></div><div class="content"><h2>Две цели, которые можно довести до результата</h2><p class="muted">Рекомендации помогают выбрать направление. Цели становятся согласованными после подтверждения обеих сторон.</p>
+<div class="row"><article class="card"><span class="pill">Общая матрица</span><h3 style="margin-top:16px">Выберите компетенцию</h3><p>Текущий уровень → целевой уровень · 3 или 6 месяцев</p><div class="placeholder">Ожидаемый результат и критерии успеха</div><ol class="steps"><li>Конкретное действие</li><li>Конкретное действие</li></ol><p class="muted">2–4 действия; материалы и доказательства прогресса.</p><p>Подтверждение сотрудника: ожидается<br>Подтверждение руководителя: ожидается</p></article>
+<article class="card"><span class="pill">Профессиональный трек</span><h3 style="margin-top:16px">Выберите компетенцию трека</h3><p>Основной трек · текущий и целевой уровень · срок</p><div class="placeholder">Результат, действия, материалы и критерии</div><p class="muted">Можно оставить без цели. Дополнительные цели не назначаются автоматически.</p><p>Промежуточные отметки и подтверждения появятся после начала работы.</p></article></div>
+<p class="annotation">У каждой цели — статус, прогресс, даты и итоговые комментарии. Изменение содержания требует повторного согласования.</p>
+</div></section>
+<footer><p class="muted">Следующий шаг: импорт и проверка XLSX, выбор направления, затем единая дизайн-система и реализация полного MVP.</p></footer>
+</main>
+<script>
+const themes={studio:{name:'Студия',bg:'#f5f4f9',text:'#232334',muted:'#555569',accent:'#5936ad',soft:'#efebf8',border:'#d9d8e2'},notebook:{name:'Рабочая тетрадь',bg:'#f7f5ef',text:'#292e28',muted:'#52604e',accent:'#236045',soft:'#eaf1e8',border:'#d6ddd0'},navigator:{name:'Навигатор',bg:'#f3f6fb',text:'#202b3c',muted:'#4e5d72',accent:'#2456a5',soft:'#eaf0fb',border:'#d3deec'}};
+document.querySelectorAll('[data-theme]').forEach(button=>button.addEventListener('click',()=>{
+ const theme=themes[button.dataset.theme];
+ Object.entries(theme).forEach(([key,value])=>{if(key!=='name')document.documentElement.style.setProperty('--'+key,value)});
+ document.querySelectorAll('[data-theme]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+ document.querySelector('#theme-status').textContent='Выбрано для просмотра: '+theme.name+'. Выбор здесь меняет только схему; направление проекта согласуется в чате.';
+}));
+document.querySelector('#sample-rating').addEventListener('change',event=>{document.querySelector('#sample-description').textContent=event.target.value==='na'?'Н/П — не применимо. Ответ не входит в среднее области.':'После выбора здесь останется полное описание уровня.';});
+</script>
+</body>
+</html>
